@@ -19,6 +19,12 @@
           </div>
           <div class="product-info">
             <h1>{{ product }}</h1>
+            <p v-show="onSale">On Sale!</p>
+            <p v-if="inventory > 10">In Stock</p><!--Si v-if = true el elemento se muestra, caso contrario no lo hace. Si se acompaña del v-else, cuando v-if
+            = false se muestra v-else. No siempre v-if debe ser acompañado de v-else.
+            v-show hace toggle de la visibilidad del objeto en vez de añadirlo o removerlo del DOM. Agrega display: "none"-->
+            <p v-else-if="inventory <= 10 && inventory > 0">Almost Out</p>
+            <p v-else>Out of Stock</p>
           </div>
         </div>
       </div>
