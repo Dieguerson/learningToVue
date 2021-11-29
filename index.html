@@ -6,14 +6,20 @@
     <!-- Import Styles -->
     <link rel="stylesheet" href="./assets/styles.css" />
     <!-- Import Vue.js -->
-    <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
-    <div id="app">
-      <h1>Product goes here</h1>
+    <div id="app"> <!--Esta div y todo su contenido tiene acceso a la app, ya que es donde está montada-->
+      <h1>{{ product }}</h1> <!--Mustache syntax: permite escribir expresiones de JS, es decir, correr JS en el HTML-->
+      <p>{{ description }}</p>
     </div>
 
-    <!-- Import Js -->
+    <!-- Mount App -->
     <script src="./main.js"></script>
+
+    <!-- Import App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
   </body>
 </html>
