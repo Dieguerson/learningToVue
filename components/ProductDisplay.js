@@ -36,8 +36,13 @@ app.component('product-display', {
           class="button" 
           :class="{ disabledButton: !inStock }" 
           :disabled="!inStock" 
-          v-on:click="addToCart">
+          v-on:click="addToCart"><!--Dispara el método que emite el evento-->
           Add to Cart
+        </button>
+        <button 
+          class="button" 
+          v-on:click="removeItem">
+          Remove Item
         </button>
       </div>
     </div>
@@ -56,7 +61,10 @@ app.component('product-display', {
   },
   methods: {
       addToCart() {
-          this.cart += 1
+          this.$emit("add-to-cart" , this.variants[this.selectedVariant].id)//Esto emite la información al padre
+      },
+      removeItem() {
+        this.$emit("remove-item" , "remove")
       },
       updateVariant(index) {
           this.selectedVariant = index
